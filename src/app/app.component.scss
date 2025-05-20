@@ -1,0 +1,8 @@
+.main {
+    display: flex;
+    justify-content: center;
+    background-color: var(--background-color);
+    margin: 20px;
+    border-radius: 20px;
+    min-height: calc(100vh - 40px);
+}

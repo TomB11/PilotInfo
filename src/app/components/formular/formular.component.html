@@ -1,0 +1,56 @@
+<form class="enter-form" [formGroup]="enterInputsForm" (submit)="onSubmit(enterInputsForm)">
+    <div formGroupName="options" class="options-group">
+        <p>Message Types</p>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" formControlName="metar" id="METAR">
+                {{'metar' | uppercase}}
+            </label>
+            <label>
+                <input type="checkbox" formControlName="sigmet" id="SIGMET">
+                {{'sigmet' | uppercase}}
+            </label>
+            <label>
+                <input type="checkbox" formControlName="taf" id="TAF_LONGTAF">
+                {{'taf' | uppercase}}
+            </label>
+        </div>
+        @if (submitted && (!enterInputsForm.valid && enterInputsForm.get('options')?.hasError('atLeastOneRequired'))) {
+        <div class="error-message">
+            At least one option is required.
+        </div>
+        }
+    </div>
+
+    <div formGroupName="locations" class="input-group">
+        <mat-form-field appearance="fill">
+            <mat-label>Airports</mat-label>
+            <input matInput class="form-control" name="airports" formControlName="airports"
+                (input)="formatForInput($event, 1)">
+        </mat-form-field>
+        @if (submitted && (!enterInputsForm.valid && enterInputsForm.get('locations.airports')?.hasError('notMinimumLetters'))) {
+            <div class="error-message">
+                At least 2 letters is required.
+            </div>
+        }
+
+        <mat-form-field appearance="fill">
+            <mat-label>Countries</mat-label>
+            <input matInput class="form-control" name="countries" formControlName="countries"
+                (input)="formatForInput($event, 2)">
+        </mat-form-field>
+        @if (submitted && (!enterInputsForm.valid && enterInputsForm.get('locations.countries')?.hasError('notMinimumLetters'))) {
+            <div class="error-message">
+                At least 2 letters is required.
+            </div>
+        }
+
+        @if (submitted && (!enterInputsForm.valid && enterInputsForm.get('locations')?.hasError('atLeastOneRequired'))) {
+            <div class="error-message">
+                At least one field is required.
+            </div>
+        }
+    </div>
+
+    <button type="submit">Create briefing</button>
+</form>

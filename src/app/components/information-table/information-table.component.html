@@ -1,0 +1,17 @@
+<div class="result-table">
+    <div class="table-double-row" *ngFor="let item of data">
+        <div class="table-row station">{{ item.stationId }}</div>
+        <div class="table-row">
+            <div class="table-cell">
+                {{ item.queryType }}
+            </div>
+            <div class="table-cell">
+                {{ item.reportTime | date: 'dd/MM/yyyy' }} - {{ item.reportTime | date: 'HH:mm' }}
+            </div>
+            <div class="table-cell">
+                {{ item.reportType === 'TAF_LONGTAF' ? 'TAF' : item.reportType }}
+            </div>
+            <div class="table-cell" [innerHTML]="item.textHTML"></div>
+        </div>
+    </div>
+</div>

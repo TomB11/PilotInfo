@@ -1,0 +1,75 @@
+:root {
+    --primary-color: #1976d2;
+    --primary-light: #63a4ff;
+    --primary-dark: #004ba0;
+    --secondary-color: #1565c0;
+    --accent-color: #82b1ff;
+    --accent-color-light: #89ccff;
+    --background-color: #f5faff;
+    --surface-color: #ffffff;
+    --text-primary: #0d1a26;
+    --text-secondary: #5c6f82;
+    --border-color: #e3eaf3; 
+    --border-color-black: #0d1a26;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-dark);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    button {
+        background-color: var(--primary-light);
+        color: var(--text-primary);
+        border: none;
+        border-radius: 6px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: var(--primary-color);
+        }
+    }
+
+    .error-message {
+        color: red;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+}
+
+input[type="checkbox" i] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        color: var(--text-primary);
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}

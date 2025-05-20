@@ -1,0 +1,20 @@
+.station {
+    background-color: var(--primary-light);
+    color: var(--surface-color);
+    padding: 0.5rem !important;
+    font-weight: bold;
+}
+
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.table-cell {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    text-align: center;
+    align-content: center;
+}
